@@ -1,24 +1,20 @@
 import React, { Component } from 'react';
 import './Menu.css'
+import MenuList from './MenuList/MenuList.js'
 
 class Menu extends Component {
 
   render() {
 
     return (
+        //THIS DIV HOLDS THE ENTIRE MENU VIEW
       <div>
         <header>
           <h1>Menu View</h1>
         </header>
-        <br/>
-        <p>THIS IS THE MENU VIEW</p>
-        <p>Below is the order items</p>
-        <div className="menuItem">
-            <p>PIZZA 1</p>
-        </div>
-        <div className="menuItem">
-            <p>PIZZA 1</p>
-        </div>
+        <hr/>
+        <h2>THIS IS THE MENU VIEW, Pizzas available for order are below</h2>
+        <MenuList/>
       </div>
     );
   }
