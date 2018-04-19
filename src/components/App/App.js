@@ -1,34 +1,38 @@
-// import React, { Component } from 'react';
-// import axios from 'axios';
-// import './App.css';
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <h1 className="App-title">Prime Pizza</h1>
-//         </header>
-//         <br/>
-//         <p>Pizza is great.</p>
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
-
 
 import React, { Component } from 'react';
 import axios from 'axios';
-import Menu from '../Menu/Menu.js'
+import './App.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import CheckoutDummy from '../CheckoutDummy'
+import MenuDummy from '../MenuDummy.js'
+import OrdersDummy from '../OrdersDummy'
+
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Menu/>
-      </div>
+
+      <Router>
+        <div>
+          {/* <MenuDummy />
+          <CheckoutDummy /> */}
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Menu</Link>
+              </li>
+              <li>
+                <Link to="/checkout">Checkout</Link>
+              </li>
+            </ul>
+          </nav>
+          <Route exact path="/" component={MenuDummy}/>
+          <Route path="/checkout" component={CheckoutDummy}/>
+          <Route exact path="/orders" component={OrdersDummy}/>
+        </div>
+      </Router>
+
     );
   }
 }
