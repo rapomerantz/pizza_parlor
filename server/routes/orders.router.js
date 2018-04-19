@@ -4,7 +4,7 @@ const pool = require('../modules/pool');
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    const queryText = `SELECT * FROM order`;
+    const queryText = `SELECT * FROM "order" `;
     pool.query(queryText)
       .then((result) => { res.send(result.rows)
      }).catch((err) => {
@@ -14,4 +14,4 @@ router.get('/', (req, res) => {
   });
   
 
-  module.exports = route
+  module.exports = router;
