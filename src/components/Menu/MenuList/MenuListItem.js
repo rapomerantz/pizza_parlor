@@ -9,8 +9,9 @@ class MenuListItem extends Component {
         <li>
             <div className="menuContainer">
                 <div className="menuItem">
-                    <h4>PIZZA NAME</h4>
-                    <p>Pizza ingredients..............</p>
+                    <h4>{this.props.pizza.name}</h4>
+                    <p>{this.props.pizza.description}</p>
+                    <h6>{this.props.pizza.cost}</h6>
                     <button>[+]</button>
                     <button>[-]</button>
                 </div>
