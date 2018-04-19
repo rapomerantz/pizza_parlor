@@ -1,40 +1,18 @@
 import React, { Component } from 'react';
-import '../Checkout.css'
 
-class CheckoutTable extends Component {
+class CheckoutTableRow extends Component {
 
   render() {
 
     return (
-        //THIS DIV HOLDS THE ENTIRE CHECKOUT VIEW
-      <div>
-
-        <h2>THIS IS THE CHECKOUT VIEW - a table will live here</h2>
-        
-        <table>
-            <tbody>
+        // Each row is a component, brings in data from Checkout.js probably
                 <tr>
-                    <td>Pizza Name</td>
-                    <td>Quantity</td>
-                    <td>Cost</td>
+                    <td>Cheese</td>
+                    <td>12</td>
+                    <td>$5000</td>
                 </tr>
-                <tr>
-                    <td>Cheeze</td>
-                    <td>120</td>
-                    <td>$50000</td>
-                </tr>
-                <tr>
-                    <td>Pizza Name</td>
-                    <td>Quantity</td>
-                    <td>Cost</td>
-                </tr>
-
-            </tbody>
-        </table>
-
-      </div>
     );
   }
 }
 
-export default CheckoutTable;
+export default CheckoutTableRow;
