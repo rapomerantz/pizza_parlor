@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
@@ -6,9 +7,12 @@ import CheckoutDummy from '../CheckoutDummy'
 import MenuDummy from '../MenuDummy.js'
 import OrdersDummy from '../OrdersDummy'
 
+
+
 class App extends Component {
   render() {
     return (
+
       <Router>
         <div>
           {/* <MenuDummy />
@@ -28,8 +32,11 @@ class App extends Component {
           <Route exact path="/orders" component={OrdersDummy}/>
         </div>
       </Router>
+
     );
   }
 }
 
 export default App;
+
+
