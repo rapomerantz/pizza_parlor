@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import CheckoutDummy from '../CheckoutDummy'
-import Menu from '../Menu/Menu.js'
-import OrdersDummy from '../OrdersDummy'
+import Checkout from '../Checkout/Checkout.js'
+import Menu from '../Menu/Menu'
+import Orders from '../Orders/Orders'
+
 
 
 
@@ -23,11 +24,14 @@ class App extends Component {
               <li>
                 <Link to="/checkout">Checkout</Link>
               </li>
+              <li>
+                <Link to="/orders">Orders (remove me later)</Link>
+              </li>
             </ul>
           </nav>
           <Route exact path="/" component={Menu}/>
-          <Route path="/checkout" component={CheckoutDummy}/>
-          <Route exact path="/orders" component={OrdersDummy}/>
+          <Route path="/checkout" component={Checkout}/>
+          <Route exact path="/orders" component={Orders}/>
         </div>
       </Router>
 
