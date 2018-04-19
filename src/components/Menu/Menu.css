@@ -1,6 +1,6 @@
 .menuContainer {
-    height: 200px;
-    width: 200px; 
+    height: 250px;
+    width: 250px; 
     border: 1px solid black; 
     margin: 20px; 
     float: left; 
@@ -8,6 +8,7 @@
 
 .menuItem {
     padding: 5px; 
+    text-align: center;
 }
 
 ul {

@@ -4,7 +4,7 @@ import axios from 'axios';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import CheckoutDummy from '../CheckoutDummy'
-import MenuDummy from '../MenuDummy.js'
+import Menu from '../Menu/Menu.js'
 import OrdersDummy from '../OrdersDummy'
 
 
@@ -15,8 +15,6 @@ class App extends Component {
 
       <Router>
         <div>
-          {/* <MenuDummy />
-          <CheckoutDummy /> */}
           <nav>
             <ul>
               <li>
@@ -27,7 +25,7 @@ class App extends Component {
               </li>
             </ul>
           </nav>
-          <Route exact path="/" component={MenuDummy}/>
+          <Route exact path="/" component={Menu}/>
           <Route path="/checkout" component={CheckoutDummy}/>
           <Route exact path="/orders" component={OrdersDummy}/>
         </div>
