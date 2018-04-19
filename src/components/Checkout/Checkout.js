@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CheckoutTable from './CheckoutTable/CheckoutTable'
 
 class Checkout extends Component {
 
@@ -11,7 +12,25 @@ class Checkout extends Component {
           <h1>Checkout</h1>
         </header>
         <hr/>
-        <h2>THIS IS THE CHECKOUT VIEW</h2>
+        {/* THIS FORM WILL HANDLE THE NAME INPUT TO BE SENT AS PART OF THE ORDER */}
+        <form>
+            <input type="text" placeholder="Name input"/>
+            <input type="submit"/>
+        </form>
+        <CheckoutTable/>
+
+
+
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        {/* THIS TOTAL WILL BE DRAWN FROM THIS.STATE */}
+        <div>
+            <h3>Total: ___________ </h3>
+        </div>
       </div>
     );
   }
