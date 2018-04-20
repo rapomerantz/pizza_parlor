@@ -1,8 +1,35 @@
 import React, { Component } from 'react';
 import './OrderTable.css'
-import OrderTableRow from './OrderTableRow.js'
+import axios from 'axios';
+import OrderTableRow from './OrderTableRow.js';
+
+const mapReduxStateToProps = (reduxState) => ({
+  reduxState
+});
 
 class OrderTable extends Component {
+  constructor (props) {
+    super(props)
+
+      this.state = ({
+        orderList: []
+      })
+    }
+
+    getOrderItems = () => {
+      axios.get('/order').then( (response) => {
+        console.log('client getOrderItems', response);
+        this.setState({
+          orderList: response.data
+        })
+      }).catch( (error) => {
+        console.log('error getting order items', error);
+      })
+      }
+  
+    componentDidMount() {
+      this.getOrderItems();
+    }
 
   render() {
 
