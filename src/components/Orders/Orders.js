@@ -13,6 +13,7 @@ class Orders extends Component {
         </header>
         <hr/>
         <h2>THIS IS THE ORDERS VIEW</h2>
+        <OrderTable/>
       </div>
     );
   }

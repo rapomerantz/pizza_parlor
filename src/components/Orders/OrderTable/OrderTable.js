@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
-import Orders from '../Orders/Orders.js';
+import './OrderTable.css'
+import OrderTableRow from './OrderTableRow.js'
 
 class OrderTable extends Component {
 
   render() {
 
     return (
-        // Each row is a component, brings in data from Checkout.js probably
+        // Each row is a component, brings in data from Orders.js
       <div>
         <table>
-          <theader>
-            <tr>
-                <th>Name</th>
-                <th>Time Order Placed</th>
-                <th>Cost</th>
-          </theader>
           <tbody>
             <tr>
-                <td>customer_name</td>
-                <td>4/5/2018 at 4:45 p.m.</td>
-                <td>order_total</td>
+                <td>Name</td>
+                <td>Time Order Placed</td>
+                <td>Cost</td>
             </tr>
-          </tbody>
-        </div>
+            <OrderTableRow/>
+            <OrderTableRow/>
+            <OrderTableRow/>
+            <OrderTableRow/>
+            <OrderTableRow/>
+
+           </tbody>
+        </table>
+
+      </div>
     );
   }
 }
 
-export default OrderTable;
+export default OrderTable;;
