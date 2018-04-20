@@ -5,42 +5,31 @@ import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux'; 
 import { Provider } from 'react-redux'; 
-import axios from 'axios'; 
+// import axios from 'axios'; 
 import logger from 'redux-logger' 
 
-
-//OG THURSDAY METHOD
-
-// const pizzaReducer = (state = {splat: 0, Onamonapizza: 0, Pepperoni: 0, Rainbow: 0, Firedragon: 0, Date: 0}, action) => {
-//     console.log('in pizzaReducer, state:', state, 'action:', action);
-//     switch(action.type) { 
-//         default:
-//             console.log('SPLAT + 1');
-//             state.splat +1;
-//             console.log(state);
-//             return state; 
-//     }
-// }
-
-
-const shoppingCart = (state = [
-                        {name: 'splat', quantity: 0, cost: 0}, {name: 'onamona', quantity: 0, cost: 0}, 
-                        {name: 'pepperoni', quantity: 0, cost: 0}, {name: 'over', quantity: 0, cost: 0},
-                        {name: 'chinese', quantity: 0, cost: 0}, {name: 'bad', quantity: 0, cost: 0},],
+// will eventually get shoppingCart data from a Saga Axios request
+const shoppingCart = (state = [{orderTotal: 0},
+                        {name: 'Splat of Marinara', quantity: 0, cost: 0}, {name: 'OnomanaPizza', quantity: 0, cost: 0}, 
+                        {name: 'Pepperoni', quantity: 0, cost: 0}, {name: 'Over the Rainbow', quantity: 0, cost: 0},
+                        {name: 'Chinese Firedragon', quantity: 0, cost: 0}, {name: 'Bad Date', quantity: 0, cost: 0}],
                       action) => {
         console.log('in shoppingCart, state: ', state, 'action', action);
-        const newState = [... state]; //duplicating current state into a new var to be edited
-        // let costVar = Number(action.payload.cost);
+        const newState = [...state]; //duplicating current state into a new var to be edited
         switch (action.type) {
             case ('ADD_PIZZA'):
-                newState[action.payload.id - 1].quantity = newState[action.payload.id - 1].quantity + 1
-                newState[action.payload.id - 1].cost = newState[action.payload.id - 1].cost + action.payload.cost
+                const pizzaToAdd = action.payload;
+                newState[pizzaToAdd.id].quantity = newState[pizzaToAdd.id].quantity + 1;
+                newState[pizzaToAdd.id].cost = newState[pizzaToAdd.id].cost + pizzaToAdd.cost;
+                newState[0].orderTotal = newState[0].orderTotal + pizzaToAdd.cost;
                 return newState //which now is updated state
 
             case ('REMOVE_PIZZA'): 
-                if (newState[action.payload.id - 1].quantity > 0) {
-                    newState[action.payload.id - 1].quantity = newState[action.payload.id - 1].quantity - 1
-                    newState[action.payload.id - 1].cost = newState[action.payload.id - 1].cost - action.payload.cost
+                const pizzaToRemove = action.payload;
+                if (newState[pizzaToRemove.id].quantity > 0) {
+                    newState[pizzaToRemove.id].quantity = newState[pizzaToRemove.id].quantity - 1;
+                    newState[pizzaToRemove.id].cost = newState[pizzaToRemove.id].cost - pizzaToRemove.cost;
+                    newState[0].orderTotal = newState[0].orderTotal - pizzaToRemove.cost;
                     return newState //which now is updated state 
                 } else {
                     return newState //which now is updated state 
