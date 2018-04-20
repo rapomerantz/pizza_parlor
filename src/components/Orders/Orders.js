@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import OrderTable from './OrderTable/OrderTable.js';
 
 class Orders extends Component {
 
