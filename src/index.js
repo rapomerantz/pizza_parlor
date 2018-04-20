@@ -45,6 +45,7 @@ const shoppingCart = (state = [
                 } else {
                     return newState //which now is updated state 
                 }
+
             default: 
                 return state;
         }
