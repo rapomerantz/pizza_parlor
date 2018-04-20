@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import OrderTable from './OrderTable.js';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 const mapReduxStateToProps = (reduxState) => ({
   reduxState
@@ -17,7 +18,7 @@ class OrderTableRow extends Component {
         // Each row is a component, brings in data from OrderTable.js
                 <tr>
                 <td>{this.props.order.customer_name}</td>
-                <td>hardCoded: 4/5/2018 at 4:45 p.m.</td>
+                <td>{moment().format('MMMM Do YYYY, h:mm:ss a')}</td>
                 <td>{this.props.order.order_total}</td>
                 </tr>
     );
