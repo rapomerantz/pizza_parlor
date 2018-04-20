@@ -9,7 +9,8 @@ const mapReduxStateToProps = (reduxState) => ({
 class MenuListItem extends Component {
 
     addPizza = () => {
-        console.log('pizza to add', this.props.pizza);
+        this.props.pizza.cost = Number(this.props.pizza.cost)
+        console.log('pizza to add', this.props.pizza.cost);
         this.props.dispatch(
             {
               type: 'ADD_PIZZA',
@@ -19,7 +20,8 @@ class MenuListItem extends Component {
     }
 
     removePizza = () => {
-        console.log('pizza to remove', this.props.pizza);
+        this.props.pizza.cost = Number(this.props.pizza.cost)
+        console.log('pizza to remove', this.props.pizza.cost);
         this.props.dispatch(
             {
               type: 'REMOVE_PIZZA',

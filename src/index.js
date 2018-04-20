@@ -33,12 +33,12 @@ const shoppingCart = (state = [
         switch (action.type) {
             case ('ADD_PIZZA'):
                 newState[action.payload.id - 1].quantity = newState[action.payload.id - 1].quantity + 1
-                newState[action.payload.id - 1].price = newState[action.payload.id - 1].price + action.payload.cost
+                newState[action.payload.id - 1].cost = newState[action.payload.id - 1].cost + action.payload.cost
                 return newState //which now is updated state
 
             case ('REMOVE_PIZZA'): 
                 newState[action.payload.id - 1].quantity = newState[action.payload.id - 1].quantity - 1
-                newState[action.payload.id - 1].price = newState[action.payload.id - 1].price - action.payload.cost
+                newState[action.payload.id - 1].cost = newState[action.payload.id - 1].cost - action.payload.cost
                 return newState //which now is updated state 
             default: 
                 return state;
