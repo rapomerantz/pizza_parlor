@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CheckoutTable from './CheckoutTable/CheckoutTable';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 const mapReduxStateToProps = (reduxState) => ({
   reduxState
@@ -10,14 +11,28 @@ class Checkout extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: '',
-      total: '',
+      newName: ''
     }
   }
+
+  handleNameChange = (event) => {
+    this.setState({
+      newName: event.target.value
+    })
+  } 
   
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    let newOrder = {customer_name: this.state.newName, order_total: this.state.total}
+    event.preventDefault();
     console.log('submit clicked');
-    
+    axios.post('/pizza', newOrder).then((response) => {
+      this.setState({
+        newName: ''
+      })
+      console.log('success posting order');
+    }).catch((error) => {
+      console.log('error posting order');
+    })
   }
 
   updateTotal = () => {
@@ -46,7 +61,7 @@ class Checkout extends Component {
         <hr/>
         {/* THIS FORM WILL HANDLE THE NAME INPUT TO BE SENT AS PART OF THE ORDER */}
         <form onSubmit={this.handleSubmit} >
-            <input type="text" placeholder="Name input"/>
+            <input type="text" placeholder="Name input" value={this.state.newName} onChange={this.handleNameChange}/>
             <input type="submit"/>
         </form>
         <CheckoutTable/>
