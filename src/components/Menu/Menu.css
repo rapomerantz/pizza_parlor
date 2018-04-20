@@ -1,5 +1,5 @@
 .menuContainer {
-    height: 250px;
+    height: 300px;
     width: 250px; 
     border: 1px solid black; 
     margin: 20px; 
@@ -14,3 +14,6 @@
 ul {
     list-style: none; 
 }
+
+
+
