@@ -7,9 +7,9 @@ class CheckoutTableRow extends Component {
     return (
         // Each row is a component, brings in data from Checkout.js probably
                 <tr>
-                    <td>Cheese</td>
-                    <td>12</td>
-                    <td>$5000</td>
+                    <td>{this.props.pizza.name}</td>
+                    <td>{this.props.pizza.quantity}</td>
+                    <td>{this.props.pizza.cost}</td>
                 </tr>
     );
   }

@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
-import '../Checkout.css'
-import CheckoutTableRow from './CheckoutTableRow.js'
+import '../Checkout.css';
+import CheckoutTableRow from './CheckoutTableRow.js';
+import { connect } from 'react-redux';
+
+const mapReduxStateToProps = (reduxState) => ({
+  reduxState
+});
 
 class CheckoutTable extends Component {
 
   render() {
+    
+    let tableItems = this.props.reduxState.shoppingCart.map((pizza) => {
+      return <CheckoutTableRow key={pizza.name} pizza={pizza}/>
+    })
 
     return (
       <div>
@@ -18,11 +27,8 @@ class CheckoutTable extends Component {
                     <td>Quantity</td>
                     <td>Cost</td>
                 </tr>
-                <CheckoutTableRow/>
-                <CheckoutTableRow/>
-                <CheckoutTableRow/>
-                <CheckoutTableRow/>
-                <CheckoutTableRow/>
+              {/* This is where the .map goes */}
+                {tableItems} 
 
             </tbody>
         </table>
@@ -32,4 +38,4 @@ class CheckoutTable extends Component {
   }
 }
 
-export default CheckoutTable;
+export default connect(mapReduxStateToProps) (CheckoutTable);
