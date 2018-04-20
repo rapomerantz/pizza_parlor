@@ -30,6 +30,7 @@ const shoppingCart = (state = [
                       action) => {
         console.log('in shoppingCart, state: ', state, 'action', action);
         const newState = [... state]; //duplicating current state into a new var to be edited
+        // let costVar = Number(action.payload.cost);
         switch (action.type) {
             case ('ADD_PIZZA'):
                 newState[action.payload.id - 1].quantity = newState[action.payload.id - 1].quantity + 1
@@ -37,9 +38,14 @@ const shoppingCart = (state = [
                 return newState //which now is updated state
 
             case ('REMOVE_PIZZA'): 
-                newState[action.payload.id - 1].quantity = newState[action.payload.id - 1].quantity - 1
-                newState[action.payload.id - 1].cost = newState[action.payload.id - 1].cost - action.payload.cost
-                return newState //which now is updated state 
+                if (newState[action.payload.id - 1].quantity > 0) {
+                    newState[action.payload.id - 1].quantity = newState[action.payload.id - 1].quantity - 1
+                    newState[action.payload.id - 1].cost = newState[action.payload.id - 1].cost - action.payload.cost
+                    return newState //which now is updated state 
+                } else {
+                    return newState //which now is updated state 
+                }
+
             default: 
                 return state;
         }
