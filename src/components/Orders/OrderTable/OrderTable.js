@@ -12,7 +12,7 @@ class OrderTable extends Component {
           <theader>
             <tr>
                 <th>Name</th>
-                <th>Time Order Placed</t>
+                <th>Time Order Placed</th>
                 <th>Cost</th>
           </theader>
           <tbody>
