@@ -30,7 +30,7 @@ class MenuList extends Component {
   render() {
 
     let menuListItems = this.state.pizzaList.map((pizza) => {
-      return (<MenuListItem key={pizza.id} pizza={pizza}/>)
+      return (<MenuListItem key={pizza.id} pizza={pizza} handleClick = {this.props.handleClick}/>)
     })
 
     return (

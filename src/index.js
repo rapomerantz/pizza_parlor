@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger' 
 
 // will eventually get shoppingCart data from a Saga Axios request
-const shoppingCart = (state = [{orderTotal: 0},
+const shoppingCart = (state = [
                         {name: 'Splat of Marinara', quantity: 0, cost: 0}, {name: 'OnomanaPizza', quantity: 0, cost: 0}, 
                         {name: 'Pepperoni', quantity: 0, cost: 0}, {name: 'Over the Rainbow', quantity: 0, cost: 0},
                         {name: 'Chinese Firedragon', quantity: 0, cost: 0}, {name: 'Bad Date', quantity: 0, cost: 0}],
@@ -19,17 +19,15 @@ const shoppingCart = (state = [{orderTotal: 0},
         switch (action.type) {
             case ('ADD_PIZZA'):
                 const pizzaToAdd = action.payload;
-                newState[pizzaToAdd.id].quantity = newState[pizzaToAdd.id].quantity + 1;
-                newState[pizzaToAdd.id].cost = newState[pizzaToAdd.id].cost + pizzaToAdd.cost;
-                newState[0].orderTotal = newState[0].orderTotal + pizzaToAdd.cost;
+                newState[pizzaToAdd.id - 1].quantity = newState[pizzaToAdd.id - 1].quantity + 1;
+                newState[pizzaToAdd.id - 1].cost = newState[pizzaToAdd.id - 1].cost + pizzaToAdd.cost;
                 return newState //which now is updated state
 
             case ('REMOVE_PIZZA'): 
                 const pizzaToRemove = action.payload;
-                if (newState[pizzaToRemove.id].quantity > 0) {
-                    newState[pizzaToRemove.id].quantity = newState[pizzaToRemove.id].quantity - 1;
-                    newState[pizzaToRemove.id].cost = newState[pizzaToRemove.id].cost - pizzaToRemove.cost;
-                    newState[0].orderTotal = newState[0].orderTotal - pizzaToRemove.cost;
+                if (newState[pizzaToRemove.id - 1].quantity > 0) {
+                    newState[pizzaToRemove.id - 1].quantity = newState[pizzaToRemove.id - 1].quantity - 1;
+                    newState[pizzaToRemove.id - 1].cost = newState[pizzaToRemove.id - 1].cost - pizzaToRemove.cost;
                     return newState //which now is updated state 
                 } else {
                     return newState //which now is updated state 

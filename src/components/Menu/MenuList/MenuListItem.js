@@ -17,6 +17,7 @@ class MenuListItem extends Component {
               payload: this.props.pizza
             }
           )
+        this.props.handleClick(); 
     }
 
     removePizza = () => {
@@ -28,6 +29,7 @@ class MenuListItem extends Component {
               payload: this.props.pizza
             }
           )
+        this.props.handleClick(); 
     }
 
     render() {
