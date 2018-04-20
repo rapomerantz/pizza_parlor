@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Checkout from '../Checkout/Checkout.js'
