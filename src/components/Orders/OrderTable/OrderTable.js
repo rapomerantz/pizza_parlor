@@ -32,6 +32,9 @@ class OrderTable extends Component {
     }
 
   render() {
+    let orderListItems = this.state.orderList.map((order) => {
+      return (<OrderTableRow key={order.id} order={order}/>)
+    })
 
     return (
         // Each row is a component, brings in data from Orders.js
@@ -43,11 +46,8 @@ class OrderTable extends Component {
                 <td>Time Order Placed</td>
                 <td>Cost</td>
             </tr>
-            <OrderTableRow/>
-            <OrderTableRow/>
-            <OrderTableRow/>
-            <OrderTableRow/>
-            <OrderTableRow/>
+
+            {orderListItems}
 
            </tbody>
         </table>
