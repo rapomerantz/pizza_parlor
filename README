@@ -1,0 +1,25 @@
+                                  React Pizza Parlor version 1.0 04/20/18
+  Goal-
+  The React Pizza Parlor app will allow guests to order pizzas electroniclly by selecting the quantity and type of pizzas they   wish to order. This app will also keep track of placed orders.
+  This project was initiated to give our customers better access to our menus and more availability to our product.
+  
+  Status-
+  This app is currently finished with phase 1. We plan to make more changes in the future that could include more menu items     and incorporate our future delivery launch.
+  
+  Build-
+  Phase 1 of this application is currently using the following programming technologies:
+ 
+  React.js
+  React Redux
+  Angular Materials
+  EXPRESS
+  NODE.JS
+  SQL
+  
+  Installation-
+  Installation of this application will not require authorization. If a customer wants the application to keep a login and       history information, authorization is required.
+  
+  Application views-
+  
+  Below are some examples of the React Pizza Parlor App 1.0 release.
+  
