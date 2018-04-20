@@ -23,9 +23,6 @@ class App extends Component {
               <li>
                 <Link to="/checkout">Checkout</Link>
               </li>
-              <li>
-                <Link to="/orders">Orders (remove me later)</Link>
-              </li>
             </ul>
           </nav>
           <Route exact path="/" component={Menu}/>

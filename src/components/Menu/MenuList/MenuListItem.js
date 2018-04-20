@@ -42,6 +42,7 @@ class MenuListItem extends Component {
                     <p>{this.props.pizza.description}</p>
                     <h6>{this.props.pizza.cost}</h6>
                     <button onClick={this.addPizza}>[+]</button>
+                    <h5>{this.props.reduxState.shoppingCart[this.props.pizza.id - 1].quantity}</h5>
                     <button onClick={this.removePizza}>[-]</button>
                 </div>
             </div>

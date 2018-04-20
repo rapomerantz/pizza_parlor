@@ -42,7 +42,7 @@ class Checkout extends Component {
     }
     console.log(result);
     this.setState({
-      total: result
+      total: result.toFixed(2)
     }) 
   }
 

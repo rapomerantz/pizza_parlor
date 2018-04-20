@@ -10,8 +10,6 @@ const mapReduxStateToProps = (reduxState) => ({
 class OrderTableRow extends Component {
 
 
-
-
   render() {
 
     return (
