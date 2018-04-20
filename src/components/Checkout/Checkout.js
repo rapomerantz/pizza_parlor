@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import CheckoutTable from './CheckoutTable/CheckoutTable'
+import CheckoutTable from './CheckoutTable/CheckoutTable';
+import { connect } from 'react-redux';
+
+const mapReduxStateToProps = (reduxState) => ({
+  reduxState
+});
 
 class Checkout extends Component {
 
   render() {
+    
 
     return (
         //THIS DIV HOLDS THE ENTIRE CHECKOUT VIEW
@@ -36,4 +42,4 @@ class Checkout extends Component {
   }
 }
 
-export default Checkout;
+export default connect(mapReduxStateToProps) (Checkout);
