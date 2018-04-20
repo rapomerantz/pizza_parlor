@@ -10,7 +10,8 @@ class Checkout extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: '' 
+      name: '',
+      total: '',
     }
   }
   
@@ -18,12 +19,23 @@ class Checkout extends Component {
     console.log('submit clicked');
     
   }
+
+  updateTotal = () => {
+    let result = 0;
+    for (let i = 0; i < this.props.reduxState.shoppingCart.length; i++) {
+      result += this.props.reduxState.shoppingCart[i].cost
+    }
+    console.log(result);
+    this.setState({
+      total: result
+    }) 
+  }
+
+  componentDidMount() {
+        this.updateTotal(); 
+  }
   
   render() {
-    console.log(this.props.reduxState.shoppingCart.orderTotal);
-    let orderTotal = this.props.reduxState.shoppingCart.orderTotal; 
-
-
 
     return (
         //THIS DIV HOLDS THE ENTIRE CHECKOUT VIEW
@@ -46,7 +58,7 @@ class Checkout extends Component {
         <br/>
         {/* THIS TOTAL WILL BE DRAWN FROM THIS.STATE */}
         <div>
-            <h3>Total: {orderTotal}</h3>
+            <h3>Total: {this.state.total}</h3>
         </div>
       </div>
     );
